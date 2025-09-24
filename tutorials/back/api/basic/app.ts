@@ -19,7 +19,7 @@ app.use("/films" , filmRouter ) ;
 
 // middleware pour compter
 let getCompteur = 0 ; 
-app.use((req , res, next) =>{
+app.use((req , _res, next) =>{
     if(req.method === 'GET'){
         getCompteur ++ ;
         console.log(`GET counter : ${getCompteur}`);
