@@ -19,6 +19,19 @@ interface Drink {
   price :number
 }
 
+export interface Film {
+  id: number ;
+  title : string ;
+  director : string ; 
+  duration :number;
+ // Propriets optionnelles
+ budget? : number;
+ description?: string ;
+ imageUrl? :string ;
+
+}
+
+
 export type {Drink};
-export type { Pizza, NewPizza, PizzaToUpdate };
+export type { Pizza, NewPizza, PizzaToUpdate};
 
