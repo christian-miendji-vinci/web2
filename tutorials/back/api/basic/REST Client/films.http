@@ -1,2 +1,19 @@
 ### Read all films with File variable
 GET http://localhost:3000/films
+
+###  Read one film 
+GET http://localhost:3000/films/1
+
+###create a new film 
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+    "title" : "Miendji le Super Heros 3D" ,
+    "director" : "Tchuini Christian" ,
+    "duration" : 192
+
+}
+
+### Read all filtered
+GET http://localhost:3000/films/?minimun-duration=100
