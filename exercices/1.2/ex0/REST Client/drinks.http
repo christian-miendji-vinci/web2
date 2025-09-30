@@ -1,0 +1,2 @@
+### Read all drinks with File variable
+GET http://localhost:3000/drinks
