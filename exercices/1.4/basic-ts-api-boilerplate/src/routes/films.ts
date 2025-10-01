@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Film } from "../types";
+import { Film } from "../../types";
 
 const films: Film[] = [
   {
@@ -29,9 +29,9 @@ const films: Film[] = [
   }
 ];
 const router = Router() ;
-router.get("/" ,(_req ,res) =>{
-  return res.json(films) ;
-})
+//router.get("/" ,(_req ,res) =>{
+//  return res.json(films) ;
+//})
 
 router.get("/:id" ,(req,res) => {
   const id = Number(req.params.id) ;
@@ -85,5 +85,6 @@ router.get("/",(req , res) =>{
   });
   return res.json(filteredFilm) ;
 })
+
 
 export default router 
