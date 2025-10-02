@@ -16,4 +16,10 @@ Content-Type: application/json
 }
 
 ### Read all filtered
-GET http://localhost:3000/films/?minimun-duration=100
+GET http://localhost:3000/films/?minimun-duration=148
+
+### Read a filter with title starting
+GET http://localhost:3000/films/?starts-with=Para
+
+###   Sorting our films table
+GET http://localhost:3000/films/?sort-by=budget&order=asc

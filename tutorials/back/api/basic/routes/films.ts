@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Film } from "../types";
+import { error } from "node:console";
 
 const films: Film[] = [
   {
@@ -29,15 +30,19 @@ const films: Film[] = [
   }
 ];
 const router = Router() ;
-router.get("/" ,(_req ,res) =>{
-  return res.json(films) ;
-})
+
+// router.get("/" ,(_req ,res) =>{
+//   return res.json(films) ;
+// })
 
 router.get("/:id" ,(req,res) => {
   const id = Number(req.params.id) ;
+  if(isNaN(id)){
+    return res.sendStatus(400) ;
+  }
   const film = films.find((film) => film.id === id) ;
   if(!film){
-    return res.sendStatus(404) ;
+    return res.sendStatus(404);
   }
   return res.json(film) ;
 })
@@ -80,10 +85,55 @@ router.get("/",(req , res) =>{
     return res.json(films) ;
   }
   const minDuration = Number(req.query["minimun-duration"]) ;
+  console.log(minDuration);
+  
   const filteredFilm =films.filter((film) =>{
     return film.duration <= minDuration ;
   });
   return res.json(filteredFilm) ;
 })
+
+router.get("/" , (req,res) =>{
+
+  const {"starts-with" : prefix} = req.query ;
+  let result = films ;
+  console.log(prefix);
+  
+  if(typeof prefix === "string" &&  prefix.trim() ){
+     result = result.filter(film => film.title.toLowerCase().startsWith(prefix.toLowerCase())) ;
+    console.log(result);
+    
+    
+  }
+  return res.json(result) ;
+})
+
+router.get("/" , (req,res) =>{
+
+   const {"sort-by" : sortBy , order } = req.query ;
+   let result  = [...films] ;
+
+   if(typeof sortBy === "string" && sortBy in films[0]){
+     result.sort((a, b) =>{
+      const valA = a[sortBy as keyof typeof a] ;
+      const valB = b[sortBy as keyof typeof b] ;
+      if(typeof valA === "string" && typeof valB ==="string"){
+        return order=== "desc"
+        ? (valB).localeCompare(valA)
+        : (valA).localeCompare(valB);
+      } 
+      if (typeof valA === "number" && typeof valB === "number") {
+        return order === "desc" ? valB - valA : valA - valB;   
+      }
+
+      return 0;  
+    });
+   }
+
+  return res.json(result); 
+})
+
+
+
 
 export default router 
