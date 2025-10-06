@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { Drink } from "../types";
+import path from "node:path" ;
+import {parse , serialize } from "../utils/json" ;
+const jsonDbpath =path.join(__dirname , "/../data/drinks.json") ;
 
-const drinks: Drink[] = [
+const defaultDrinks: Drink[] = [
   {
     id: 1,
     title: "Coca-Cola",
@@ -46,8 +49,16 @@ const drinks: Drink[] = [
 
 const router = Router();
 
-router.get("/", (_req, res) => {
-  return res.json(drinks);
+router.get("/", (req, res) => {
+   const drinks = parse(jsonDbpath , defaultDrinks) ;
+   if(!req.query["budget-max"]) {
+    return res.json(drinks) ;
+   }
+   const budgetMax = Number(req.query["budget-max"]) ;
+   const filteredDrinks = drinks.filter((drink) =>{
+     return drink.price <= budgetMax ;
+   })
+  return res.json(filteredDrinks);
 });
 
 
