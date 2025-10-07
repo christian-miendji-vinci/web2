@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Drink } from "../types";
 import path from "node:path" ;
-import {parse , serialize } from "../utils/json" ;
+import {parse} from "../utils/json" ;
 const jsonDbpath =path.join(__dirname , "/../data/drinks.json") ;
 
 const defaultDrinks: Drink[] = [
