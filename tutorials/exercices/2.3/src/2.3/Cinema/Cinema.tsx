@@ -3,12 +3,9 @@ interface Movie{
   director: string ;
 }
 
-
 interface CinemaProp{
     name: string;
-    movie1: Movie ;
-    movie2 : Movie ;
-    
+    movies: Movie[];
 }
 
 const Cinema = (prop: CinemaProp) =>{
@@ -18,12 +15,12 @@ const Cinema = (prop: CinemaProp) =>{
         <h2>{prop.name}</h2>
         <ul>
           <li>
-            <strong>{prop.movie1.title}</strong> - réalisateur :{" "}
-            {prop.movie1.director}
+            <strong>{prop.movies[0].title}</strong> - réalisateur :{" "}
+            {prop.movies[0].director}
           </li>
           <li>
-            <strong>{prop.movie2.title}</strong> - realisateur :{" "}
-            {prop.movie2.director}
+            <strong>{prop.movies[1].title}</strong> - realisateur :{" "}
+            {prop.movies[1].director}
           </li>
         </ul>
     </div>
@@ -32,12 +29,12 @@ const Cinema = (prop: CinemaProp) =>{
         <h2>{prop.name}</h2>
         <ul>
           <li>
-            <strong>{prop.movie1.title}</strong> - réalisateur :{" "}
-            {prop.movie1.director}
+            <strong>{prop.movies[2].title}</strong> - réalisateur :{" "}
+            {prop.movies[2].director}
           </li>
           <li>
-           <strong>{prop.movie2.title}</strong> - réalisateur :{" "}
-           {prop.movie2.director}
+           <strong>{prop.movies[3].title}</strong> - réalisateur :{" "}
+           {prop.movies[3].director}
           </li>
         </ul>
     </div>
