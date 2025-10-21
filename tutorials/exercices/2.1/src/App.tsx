@@ -8,7 +8,9 @@ import PageTitle from './pageTitle';
 
 const  App = () => {
   const pageTitle = "Informations sur les films dans les cinémas" ;
+
   const cinema1Name = "UGC DeBrouckère";
+  
   const cinema1Movie1Title = "Film 1 - DeBrouckère";
   const cinema1Movie1Director = "Director A";
   const cinema1Movie2Title = "Film 2 - DeBrouckère";

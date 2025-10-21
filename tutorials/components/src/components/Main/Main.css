@@ -1,0 +1,7 @@
+main{
+  text-align: center;
+  /* Pour gérer facilement le pied de page fixe : 
+  agrandir le bloc principal (main) pour qu’il remplisse l’espace disponible*/
+  flex: 1 0 auto;
+
+}

@@ -1,0 +1,44 @@
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+import "./App.css";
+import Cinema from "./Cinema";
+import PageTitle from "./pageTitle";
+
+const App = () => {
+  const pageTitle = "Informations sur les films dans les cinémas";
+
+  const cinema1Name = "UGC DeBrouckère";
+
+  const movie1 = {
+    title: "HAIKYU-THE DUMSPTER BATTLE",
+    director: "Susumu Mitsunaka",
+  };
+  const movie2 = {
+    title: "GOODBYE JULIA",
+    director: "Mohammed Kordofani",
+  };
+
+  const cinema2Name = "UGC Toison d'Or";
+
+  const movie3 = {
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  };
+
+  const movie4 = {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  };
+
+  return (
+    <div>
+      <PageTitle title={pageTitle} />
+      <Cinema name={cinema1Name} movie1={movie1} movie2={movie2} />
+
+      <Cinema name={cinema2Name} movie1={movie3} movie2={movie4} />
+    </div>
+  );
+};
+
+export default App;

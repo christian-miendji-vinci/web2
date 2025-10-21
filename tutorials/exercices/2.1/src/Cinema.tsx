@@ -1,15 +1,16 @@
-interface CinemaProp{
-    name: string;
-    movie1Title: string;
-    movie1Director : string ;
-    movie2Title : string ;
-    movie2Director :string ;
+interface CinemaProp {
+  name: string;
+  movie1Title: string;
+  movie1Director: string;
+  movie2Title: string;
+  movie2Director: string;
 }
 
-const Cinema = (prop: CinemaProp) =>{
-
- return(
-    <div> <div> 
+const Cinema = (prop: CinemaProp) => {
+  return (
+    <div>
+      {" "}
+      <div>
         <h2>{prop.name}</h2>
         <ul>
           <li>
@@ -21,9 +22,8 @@ const Cinema = (prop: CinemaProp) =>{
             {prop.movie1Director}
           </li>
         </ul>
-    </div>
-
-    <div>
+      </div>
+      <div>
         <h2>{prop.name}</h2>
         <ul>
           <li>
@@ -31,12 +31,12 @@ const Cinema = (prop: CinemaProp) =>{
             {prop.movie2Director}
           </li>
           <li>
-           <strong>{prop.movie2Title}</strong> - réalisateur :{" "}
-           {prop.movie2Director}
+            <strong>{prop.movie2Title}</strong> - réalisateur :{" "}
+            {prop.movie2Director}
           </li>
         </ul>
+      </div>
     </div>
- </div>
- );  
+  );
 };
-export default Cinema ;
+export default Cinema;
