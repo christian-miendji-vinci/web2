@@ -1,6 +1,6 @@
-import CarteUsers from "../CarteUser";
-import Footer from "../Footer";
-import Title from "../Title";
+import CarteUsers from "../CarteUser/index";
+import Footer from "../Footer/index";
+import Title from "../Title/index";
 import "./App.css";
 
 const App = () => {
