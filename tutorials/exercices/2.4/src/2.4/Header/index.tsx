@@ -11,10 +11,10 @@ const Header = (props : HeaderProps) =>{
    <header>
       <div  className=" Introduction">
          <img
-          src={props.image}
-          alt={props.url} 
+          src={props.url}
+          alt={props.image} 
           className="intro-image"
-          width="60"
+          width="150"
         />
       </div>
       <div className="details">{props.children}</div>

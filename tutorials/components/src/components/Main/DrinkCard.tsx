@@ -7,17 +7,17 @@ interface DrinkCardProps {
     être tout type d'élément React.*/;
 }
 
-const DrinkCard = (props: DrinkCardProps) => {
+const DrinkCard = ({title , image, children}: DrinkCardProps) => {
   return (
     <div className="drink-card">
       <img
-        src={props.image}
-        alt={props.title}
+        src={image}
+        alt={title}
         className="drink-image"
         width="50"
       />
-      <h2>{props.title}</h2>
-      <div className="drink-details">{props.children}</div>
+      <h2>{title}</h2>
+      <div className="drink-details">{children}</div>
     </div>
   );
 };
