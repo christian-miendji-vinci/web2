@@ -1,16 +1,10 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import ClickCounter10 from './ClickCounter'
 
-function App() {
-  const [count, setCount] = useState(0);
-  const ClickCounter = () => {
-    console.log(`value of count before click: ${count}`);
-    setCount((count) => count + 1) ;
-    
-  }
 
+const App = () => {
   return (
     <>
       <div>
@@ -23,9 +17,10 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={ClickCounter}>
-          count is {count}
-        </button>
+        <ClickCounter10
+           title="Compteur de clics"
+           message='you are a master in the art of clicking'
+          />
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
