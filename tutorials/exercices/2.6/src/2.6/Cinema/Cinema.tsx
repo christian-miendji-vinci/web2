@@ -1,3 +1,5 @@
+import MovieItem from "../MovieItem/MovieItem";
+
 interface Movie{
   title: string;
   director: string ;
@@ -9,37 +11,23 @@ interface CinemaProp{
     movies: Movie[];
 }
 
-const Cinema = (prop: CinemaProp) =>{
+const Cinema = ({name, movies}: CinemaProp) =>{
 
  return(
-    <div> <div> 
-        <h2>{prop.name}</h2>
+    <div> 
+        <h2>{name}</h2>
         <ul>
-          <li>
-            <strong>{prop.movies[0].title}</strong> - réalisateur :{" "}
-            {prop.movies[0].director}
-          </li>
-          <li>
-            <strong>{prop.movies[1].title}</strong> - realisateur :{" "}
-            {prop.movies[1].director}
-          </li>
+          {movies.map((movie , index) => (
+            <li key={index}>
+             <MovieItem
+               title={movie.title}
+               director={movie.director}
+               description={movie.description}
+             />
+            </li>
+          ))}
         </ul>
     </div>
-
-    <div>
-        <h2>{prop.name}</h2>
-        <ul>
-          <li>
-            <strong>{prop.movies[2].title}</strong> - réalisateur :{" "}
-            {prop.movies[2].director}
-          </li>
-          <li>
-           <strong>{prop.movies[3].title}</strong> - réalisateur :{" "}
-           {prop.movies[3].director}
-          </li>
-        </ul>
-    </div>
- </div>
  );  
 };
 export default Cinema ;
