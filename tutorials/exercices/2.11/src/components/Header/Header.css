@@ -1,0 +1,18 @@
+.Notation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 15px 30px;
+}
+
+.Presentation nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+.Presention nav a:hover {
+  color: #ff6600;
+}

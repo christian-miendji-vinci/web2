@@ -83,17 +83,15 @@ export function createOneFilm(newFilm : NewFilm) : Film {
     serialize(jsonDbpath , films) ;
     return createFilm ;
 }
-
-export function deleteOneFilm(filmId : number) : Film | undefined {
-    const films = parse(jsonDbpath , defaultFilms) ;
-    const index = films.findIndex((film) => film.id === filmId) ;
-    if(index === -1 ){
-        return undefined ;
+export function deleteOneFilm(filmId: number): Film | undefined {
+    const films = parse(jsonDbpath, defaultFilms);
+    const index = films.findIndex((film) => film.id === filmId);
+    if (index === -1) {
+        return undefined;
     }
-    const deletedElements = films.splice(index , 1) ;
-    serialize(jsonDbpath , films) ;
-    
-    return deletedElements[0] ;
+    const [deletedFilm] = films.splice(index, 1);
+    serialize(jsonDbpath, films);
+    return deletedFilm;
 }
 
 export function updateOneFilm (

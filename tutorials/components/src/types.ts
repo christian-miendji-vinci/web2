@@ -4,7 +4,9 @@ interface Pizza {
     content: string;
 }
 
+
 type NewPizza = Omit<Pizza , "id"> ;
 
 export type {Pizza , NewPizza};
+
  

@@ -7,7 +7,7 @@ import { useState} from "react";
 import type { Pizza , NewPizza } from "../../types";
 import AddPizza from "./AddPizza";
 
-const defaultPizzas = [
+ const defaultPizzas = [
   {
     id: 1,
     title: "4 fromages",
