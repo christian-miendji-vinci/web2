@@ -6,8 +6,9 @@ const NavBar =() => {
     return(
         <nav>
             <button onClick={() => navigate("/")}>Acceuil</button>
+            <button onClick={() => navigate("/application")}>Affiche</button>
             <button onClick={() => navigate("/list-Movies")}>Movies</button>
-            <button onClick={() => navigate("/add")}>Ajouter</button>
+            <button onClick={() => navigate("/a-propos")}>APropos</button>
         </nav>
     );
 };

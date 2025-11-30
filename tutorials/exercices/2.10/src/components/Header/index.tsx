@@ -22,6 +22,7 @@ const Header = ({Notation , handleHeaderClick , link}: HeaderProps) => {
     <header onClick={handleClick} className="Presentation">
       <h1 className="Notation">
         {notation ? `${Notation}... I love that i became next day!` : Notation}
+       
       </h1>
       <nav>
         <a href="https://www.bing.com/images/search?q=American+state+cinema&form=HDRSC3&first=1">{link}</a>

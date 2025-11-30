@@ -1,9 +1,11 @@
 import images from "../image/108387402.webp" ;
+import NavBar from "../NavBar/NavBar";
 import "./HomePage.css";
 
 const HomePage = () =>{
     return(
         <>
+        <NavBar />
          <div>
             <h1><i>UGC vous acceuil dans le cinema du siecle</i></h1>
             <section className="Cinema">

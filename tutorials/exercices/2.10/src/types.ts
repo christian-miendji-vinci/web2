@@ -16,6 +16,6 @@ export interface MovieItemContext{
   title: string;
   director: string;
   description: string;
-  name: string;
+  //ame: string;
   movies: Movie[];
 }

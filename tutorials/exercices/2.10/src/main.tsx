@@ -3,25 +3,27 @@ import ReactDOM from "react-dom/client";
 import HomePage from "../src/components/Pages/HomePage";
 import CinemaPage from "../src/components/Pages/CinemaPages";
 import MovieListPage from "../src/components/Pages/MovieListPage";
-//import App from "./components/App";
+import App from "./components/App";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
+    path:"/application",
+    element: <App />,
+  },
+  {
     path: "/",
     element: <HomePage />,
-    children: [
-      {
-        path: "list-Movies",
-        element: <MovieListPage />,
-      },
-      {
-        path: "add",
-        element: <CinemaPage />,
-      },
-    ],
   },
+  {
+    path: "/list-Movies",
+    element: <MovieListPage />,
+  },
+  {
+    path: "/a-propos",
+        element: <CinemaPage />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

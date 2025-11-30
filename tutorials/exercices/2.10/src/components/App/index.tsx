@@ -1,11 +1,11 @@
 import { useState, type SyntheticEvent } from "react";
 import "./App.css";
-import type { Movie, MovieItemContext, } from "../../types";
-import ScreenFilm from "../Pages/MovieListPage";
-import NavBar from "../NavBar/NavBar";
+import type { Movie } from "../../types";
+//import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
 import Header from "../Header";
-import { Outlet } from "react-router-dom";
+import ScreenFilm from "../Pages/MovieListPage";
+//import { Outlet } from "react-router-dom";
 
 const AnotherMovies = [
   {
@@ -49,16 +49,6 @@ const App = () => {
   const [description, setDescription] = useState("...");
   const [budget, setBudget] = useState<number>();
   const [movies, setMovies] = useState(AnotherMovies);
-
- 
-
-  const fullMoviesItemContext: MovieItemContext = {
-    title,
-    director,
-    description,
-    name,
-    movies,
-  };
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -114,22 +104,19 @@ const App = () => {
   };
 
   const handleHeaderClick = () => {
-    setName("........");
+    setName(name);
   };
 
   return (
     <main>
       <Header
-        Notation="Je deteste le film PARASITE"
+        Notation="BIENVENUE QUE DESIREZ VOUS REGARDER ?"
         version={1}
         link="Cinema Americains"
         handleHeaderClick={handleHeaderClick}
       />
       <div>
         <p>WELCOME CHOOSING YOUR MOVIES</p>
-        <NavBar />
-       
-        <Outlet context={fullMoviesItemContext} />
         <ScreenFilm />
         <br />
         <form onSubmit={handleSubmit}>
