@@ -1,0 +1,15 @@
+ .Cinema{
+      margin-top: 20px;
+    }
+
+    .Cinema img {
+      width: 60%;          /* taille de l’image */
+      max-width: 600px;    /* limite en pixels */
+      border-radius: 10px; /* coins arrondis */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .Cinema h2 {
+      margin-top: 20px;
+      color: #333;
+    }
