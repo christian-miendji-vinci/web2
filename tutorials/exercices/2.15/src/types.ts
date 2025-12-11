@@ -11,6 +11,7 @@
 export interface MoviesContext{
     movies :Movie[];
     onMovieAdded : (newMovie: NewMovie) => Promise<void> ;
+    onMovieDeleted: (movie: Movie) => void;
 }
 
 export type NewMovie = Omit<Movie, "id">;

@@ -1,0 +1,46 @@
+import { useState, useRef, useEffect } from "react";
+
+interface AudioPlayerProps {
+  sound: string;
+  actionToBePerformed: boolean;
+  clearActionToBePerformed: () => void;
+}
+
+const AudioPlayer = ({
+  sound,
+  actionToBePerformed,
+  clearActionToBePerformed,
+}: AudioPlayerProps) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audioElement = audioRef.current;
+
+    if (audioElement && actionToBePerformed) {
+      console.log("actionToBePerformed", actionToBePerformed);
+      if (audioElement.paused) audioElement.play();
+      else audioElement.pause();
+      clearActionToBePerformed();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actionToBePerformed]);
+
+  return (
+    <div>
+      <audio
+        id="audioPlayer"
+        controls
+        ref={audioRef}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        <source src={sound} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <p><i>{isPlaying ? "Playing" : "Paused"}</i></p>
+    </div>
+  );
+};
+
+export default AudioPlayer;

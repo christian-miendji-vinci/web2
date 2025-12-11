@@ -6,7 +6,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ScreenFilm from "../Pages/MovieListPage";
 import {  useNavigate, Outlet} from "react-router-dom";
-import { fetchMovies , addMovie } from "../movies.services";
+import { fetchMovies , addMovie , deleteMovie} from "../movies.services";
 
 
 
@@ -43,15 +43,29 @@ const App = () => {
       const movieToBeAdded = await addMovie(newMovie);
       console.log("Movie added:", movieToBeAdded);
       await initMovies();
-      navigate("/application");
+      navigate("/list-Movies");
     } catch (error) {
       console.error(error);
     }
   };
   
+   const onMovieDeleted = async (movie: Movie) => {
+    console.log("Movie to delete:", movie);
+
+    try {
+      await deleteMovie(movie);
+      console.log("Movie deleted:", movie);
+      await initMovies();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+   
+
    const movieContext: MoviesContext = {
     movies,
     onMovieAdded,
+    onMovieDeleted,
   };
   
   const handleSubmit = (e: SyntheticEvent) => {
@@ -109,7 +123,10 @@ const App = () => {
         handleHeaderClick={handleHeaderClick}
       />
       <div>
-        <Outlet context={movieContext}/>
+         <main className="Essaie">
+           <Outlet context={movieContext}/>
+         </main>
+        
         <p>WELCOME CHOOSING YOUR MOVIES</p>
         <ScreenFilm />
         <br />

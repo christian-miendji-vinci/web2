@@ -709,5 +709,21 @@
       "status": "requested",
       "id": 11
     }
-  ]
+  ],
+   "films": [
+    {
+      "id": 1,
+      "title": "THOMAS SANKARA",
+      "director": "Gruyère",
+      "duree": 125
+    },
+    {
+      "id": 2,
+      "title": "THOMAS SANKARA",
+      "director": "PIERRE",
+      "duree": 100
+    }
+    
+    
+   ]
 }
